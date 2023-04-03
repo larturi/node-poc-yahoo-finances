@@ -1,7 +1,6 @@
 # PoC Yahoo Api Finances Endpoint
 
-
-### Quick Start
+## Dev
 
 ```bash
 npm install
@@ -9,5 +8,13 @@ npm install
 npx ts-node index.ts
 ```
 
-### Example:
-http://localhost:3000/quote?symbols=TECO2.BA&modules=price
+##### Example
+<http://localhost:3000/quote?symbols=TECO2.BA&modules=price>
+
+## Prod
+
+```bash
+tsc
+```
+
+##### This will generate the dist folder ready to deploy
