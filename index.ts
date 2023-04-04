@@ -1,6 +1,6 @@
 import express from 'express'
-import axios from 'axios'
 import { getQuote } from './services/yahoo.service';
+import { currentDate } from './helpers/logger';
 
 const app = express()
 
@@ -13,10 +13,11 @@ app.get("/quote", async (req: express.Request, res: express.Response) => {
   const response = await getQuote(url)
 
   console.log(response)
+  console.log(currentDate())
 
   res.send(response)
 });
 
-app.listen(3000, () => {
-  console.log("Server listening on port 3000")
+app.listen(3014, () => {
+  console.log("Server listening on port 3014")
 });
