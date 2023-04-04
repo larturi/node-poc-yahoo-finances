@@ -7,7 +7,7 @@ export interface QuoteResponse {
   error:  null;
 }
 
-export interface RelevantQuoteInfo {
+export interface YahooRelevantInfo {
   logDate:                  string;
   averageDailyVolume3Month: number;
   regularMarketPrice:       number;
@@ -15,7 +15,7 @@ export interface RelevantQuoteInfo {
 
 }
 
-export interface Result {
+interface Result {
   language:                          string;
   region:                            string;
   quoteType:                         string;

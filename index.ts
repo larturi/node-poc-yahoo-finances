@@ -1,19 +1,17 @@
-import express from 'express'
-import { getQuote } from './services/yahoo.service';
-import { currentDate } from './helpers/logger';
+import express, { Request, Response } from 'express'
+import { getYahooRelevantInfo } from './services/yahoo.service';
 
 const app = express()
 
-app.get("/quote", async (req: express.Request, res: express.Response) => {
+app.get("/quote", async (req: Request, res: Response) => {
   const baseUrl = 'https://query1.finance.yahoo.com/v7/finance/quote'
   const symbols = req.query.symbols as string
   const modules = req.query.modules as string
 
   const url: string = `${baseUrl}?symbols=${symbols}&modules=${modules}`
-  const response = await getQuote(url)
+  const response = await getYahooRelevantInfo(url)
 
   console.log(response)
-  console.log(currentDate())
 
   res.send(response)
 });
