@@ -4,7 +4,7 @@ import { currentDate } from '../helpers/currentDate'
 
 function downloadLog(res: Response) {
 
-  const filePath = './log.csv'
+  const filePath = './logs.csv'
 
   const dateWithSeconds = currentDate()
   const dateNumbersOnly = dateWithSeconds.replace(/\D/g, "");
