@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express'
 import { CustomError } from '../errors/custom-error'
-import { currentDate } from '../helpers/currentDate';
-import { insertToCSV } from '../helpers/writterCsv';
+import { currentDate } from '../helpers/currentDate'
+import { insertToCSV } from '../helpers/writterCsv'
 
 export const errorhandler = (
     err: Error, 
@@ -32,7 +32,7 @@ export const errorhandler = (
         logDate: dateWithMinutesAndSeconds,
         status: 400,
         message: err.message
-    });
+    })
 
     insertToCSV([
         dateWithMinutesAndSeconds,
@@ -44,5 +44,5 @@ export const errorhandler = (
         errors: [
             { message: 'Something went wrong' }
         ]
-    });
+    })
 }

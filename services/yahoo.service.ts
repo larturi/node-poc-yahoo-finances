@@ -12,7 +12,7 @@ async function getYahooRelevantInfo(url: string): Promise<any> {
     averageDailyVolume3Month: data.averageDailyVolume3Month,
     regularMarketPrice: data.regularMarketPrice,
     symbol: data.symbol,
-  };
+  }
   
   return relevantInfo
 }

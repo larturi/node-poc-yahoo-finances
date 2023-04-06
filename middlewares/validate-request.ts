@@ -13,6 +13,6 @@ export const validateRequest = (
             throw new RequestValidationError(errors.array())
         }
 
-        next();
+        next()
 }
 

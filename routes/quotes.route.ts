@@ -26,6 +26,6 @@ router.get(
         ])
       
         res.send(response)
-});
+})
 
 export { router as quotesRouter }
