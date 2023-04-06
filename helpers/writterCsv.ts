@@ -1,7 +1,7 @@
 import fs from 'fs'
 
 function insertToCSV(row: string[]): void {
-  const data = `${row.join('')}\n`
+  const data = `${row.join(';')}\n`
 
   const filePath = 'log.csv'
 
