@@ -2,6 +2,12 @@ import { Request, Response, NextFunction } from 'express'
 import { CustomError } from '../errors/custom-error'
 import { currentDate } from '../helpers/currentDate'
 import { insertToCSV } from '../helpers/writterCsv'
+import dotenv from 'dotenv';
+import axios from 'axios';
+
+dotenv.config();
+
+const slackUrl = process.env.SLACK_URL || '';
 
 export const errorhandler = (
     err: Error, 
@@ -18,6 +24,8 @@ export const errorhandler = (
             status: err.statusCode,
             message: err.message
         })
+
+        axios.post(slackUrl, { text: `Error en API Yahoo Finances. ${req.body.text}`})
 
         insertToCSV([
             dateWithMinutesAndSeconds,
@@ -39,6 +47,8 @@ export const errorhandler = (
         'ERROR',
         `{ status: 400, message: ${err.message} }`
     ])
+
+    axios.post(slackUrl, { text: `Error en API Yahoo Finances. ${err.message}. ${dateWithMinutesAndSeconds}`})
 
     res.status(400).send({
         errors: [
