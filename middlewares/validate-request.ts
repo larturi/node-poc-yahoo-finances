@@ -10,11 +10,7 @@ export const validateRequest = (
         const errors = validationResult(req)
 
         if(!errors.isEmpty()) {
-
             const slackUrl = process.env.SLACK_URL || '';
-
-            console.log(slackUrl);
-
             throw new RequestValidationError(errors.array())
         }
 
